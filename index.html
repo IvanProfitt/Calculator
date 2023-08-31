@@ -5,37 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" type="text/css" href="stylesheet.css" />
-    <script src="script.js"></script>
+
+
 </head>
 <body>
 
-    <p class="screen"> </p>
+    <p class="screen" id="screen"> </p>
     <div class="allButtons">
         <div class="otherButtons">
-            <input type="button" value="clear"/>
-            <input type="button" value="del"/>
+            <input type="button" value="clear" onclick="clearNum();"/>
+            <input type="button" value="del" onclick="clear();"/>
         </div>
         <div class="numButtons">
-            <input type="button" value="1"/>
-            <input type="button" value="2"/>
-            <input type="button" value="3"/>
-            <input type="button" value="4"/>
-            <input type="button" value="5"/>
-            <input type="button" value="6"/>
-            <input type="button" value="7"/>
-            <input type="button" value="8"/>
-            <input type="button" value="9"/>
-            <input type="button" value="0"/>
+            <input type="button" value="1" onclick="getFirstNumber(1);"/>
+            <input type="button" value="2" onclick="getFirstNumber(2);"/>
+            <input type="button" value="3" onclick="getFirstNumber(3);"/>
+            <input type="button" value="4" onclick="getFirstNumber(4);"/>
+            <input type="button" value="5" onclick="getFirstNumber(5);"/>
+            <input type="button" value="6" onclick="getFirstNumber(6);"/>
+            <input type="button" value="7" onclick="getFirstNumber(7);"/>
+            <input type="button" value="8" onclick="getFirstNumber(8);"/>
+            <input type="button" value="9" onclick="getFirstNumber(9);"/>
+            <input type="button" value="0" onclick="getFirstNumber(0);"/>
         </div>
 
         <div class="functionButtons">
-            <input type="button" value="+"/>
-            <input type="button" value="-"/>
-            <input type="button" value="*"/>
-            <input type="button" value="/"/>
-            <input type="button" value="="/>
+            <input type="button" value="+" onclick="getSecondNumber(0);"/>
+            <input type="button" value="-" onclick="getSecondNumber(1);"/>
+            <input type="button" value="*" onclick="getSecondNumber(2);"/>
+            <input type="button" value="/" onclick="getSecondNumber(3);"/>
+            <input type="button" value="=" onclick="getFunction();"/>
         </div>
     </div>
     
 </body>
+<script src="script.js"></script>
 </html>
