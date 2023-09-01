@@ -1,27 +1,9 @@
 let firstNumber;
+let secondNumber;
+let operatorValue;
 let numString ="";
+let clearScreen=true;
 const calcScreen = document.getElementById("screen");
-function getFirstNumber(nextNum){
-    if(firstNumber!=undefined){
-    numString=firstNumber.toString();
-    }
-    let nextString=nextNum.toString();
-
-    numString=numString+nextString;
-    giveOutput(numString);
-    firstNumber = parseInt(numString);
-
-}
-
-function clearNum(){
-    console.log("1");
-    calcScreen.innerHTML=" ";
-}
-
-function getSecondNumber(outputNum){
-    
-    
-}
 
 function returnFirstNumber(){
     return firstNumber;
@@ -37,16 +19,109 @@ function returnOperator(){
 
 }
 
-function getFunction(){
-        clear();
-        operate(returnFirstNumber(),returnOperator(),returnSecondNumber());
+
+function updateValue(){
+    if(operatorValue===undefined){
+        firstNumber=firstNumber=parseInt(calcScreen.innerHTML);
     }
 
-function operate(first, operator, second){
+    else{
+        secondNumber=parseInt(calcScreen.innerHTML);
+    }
+}
+
+
+function clearNum(){
+    calcScreen.innerHTML="";
+    updateValue();
+}
+
+
+
+function deleteNum(){
+    if(calcScreen.innerHTML.length>0){
+        calcScreen.innerHTML=calcScreen.innerHTML.slice(0,-1);
+        updateValue();
+    }
+}
+
+
+function addNumber(nextNumber){
+    if(clearScreen===false){
+        console.log("ahhh");
+        clearScreen=true;
+        clearNum();
+    }
+    if(firstNumber===undefined){
+        calcScreen.innerHTML=" ";
+    }
+    let nextString=nextNumber.toString();
+    calcScreen.innerHTML=calcScreen.innerHTML+nextString;
+    updateValue();
 
 }
 
-function giveOutput(outputString){
-    calcScreen.innerHTML=`${outputString}`;
+function setOperator(value){
+    operatorValue=value;
 
+}
+
+function operate(firstNumber, operator, secondNumber){
+
+    if (operator === 0) {
+        // Perform the operation
+        firstNumber = firstNumber + secondNumber;
+        console.log("Result:", firstNumber);
+
+        // Convert the result to a string and update calcScreen
+        calcScreen.innerHTML = firstNumber.toString();
+
+
+        firstNumber = undefined;
+        secondNumber = undefined;
+        operatorValue = undefined;
+        clearScreen=false;
+    }
+    if (operator === 1) {
+        // Perform the operation
+        firstNumber = firstNumber - secondNumber;
+        console.log("Result:", firstNumber);
+
+        // Convert the result to a string and update calcScreen
+        calcScreen.innerHTML = firstNumber.toString();
+
+
+        firstNumber = undefined;
+        secondNumber = undefined;
+        operatorValue = undefined;
+        clearScreen=false;
+    }
+    if (operator === 2) {
+        // Perform the operation
+        firstNumber = firstNumber * secondNumber;
+        console.log("Result:", firstNumber);
+
+        // Convert the result to a string and update calcScreen
+        calcScreen.innerHTML = firstNumber.toString();
+
+
+        firstNumber = undefined;
+        secondNumber = undefined;
+        operatorValue = undefined;
+        clearScreen=false;
+    }
+    if (operator === 3) {
+        // Perform the operation
+        firstNumber = firstNumber / secondNumber;
+        console.log("Result:", firstNumber);
+
+        // Convert the result to a string and update calcScreen
+        calcScreen.innerHTML = firstNumber.toString();
+
+
+        firstNumber = undefined;
+        secondNumber = undefined;
+        operatorValue = undefined;
+        clearScreen=false;
+    }
 }

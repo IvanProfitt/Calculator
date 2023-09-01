@@ -9,32 +9,35 @@
 
 </head>
 <body>
+    <div class="calculator">
+        <p class="screen" id="screen"> </p>
+        <div class="allButtons">
+            <div class="calcButtons">
+                <div class="numButtons">
+                    <input type="button" value="1" onclick="addNumber(1);"/>
+                    <input type="button" value="2" onclick="addNumber(2);"/>
+                    <input type="button" value="3" onclick="addNumber(3);"/>
+                    <input type="button" value="4" onclick="addNumber(4);"/>
+                    <input type="button" value="5" onclick="addNumber(5);"/>
+                    <input type="button" value="6" onclick="addNumber(6);"/>
+                    <input type="button" value="7" onclick="addNumber(7);"/>
+                    <input type="button" value="8" onclick="addNumber(8);"/>
+                    <input type="button" value="9" onclick="addNumber(9);"/>
+                    <input type="button" value="0" onclick="addNumber(0);"/>
+                </div>
 
-    <p class="screen" id="screen"> </p>
-    <div class="allButtons">
-        <div class="otherButtons">
-            <input type="button" value="clear" onclick="clearNum();"/>
-            <input type="button" value="del" onclick="clear();"/>
-        </div>
-        <div class="numButtons">
-            <input type="button" value="1" onclick="getFirstNumber(1);"/>
-            <input type="button" value="2" onclick="getFirstNumber(2);"/>
-            <input type="button" value="3" onclick="getFirstNumber(3);"/>
-            <input type="button" value="4" onclick="getFirstNumber(4);"/>
-            <input type="button" value="5" onclick="getFirstNumber(5);"/>
-            <input type="button" value="6" onclick="getFirstNumber(6);"/>
-            <input type="button" value="7" onclick="getFirstNumber(7);"/>
-            <input type="button" value="8" onclick="getFirstNumber(8);"/>
-            <input type="button" value="9" onclick="getFirstNumber(9);"/>
-            <input type="button" value="0" onclick="getFirstNumber(0);"/>
-        </div>
-
-        <div class="functionButtons">
-            <input type="button" value="+" onclick="getSecondNumber(0);"/>
-            <input type="button" value="-" onclick="getSecondNumber(1);"/>
-            <input type="button" value="*" onclick="getSecondNumber(2);"/>
-            <input type="button" value="/" onclick="getSecondNumber(3);"/>
-            <input type="button" value="=" onclick="getFunction();"/>
+                <div class="functionButtons">
+                    <input type="button" value="+" onclick="setOperator(0), clearNum();"/>
+                    <input type="button" value="-" onclick="setOperator(1), clearNum();"/>
+                    <input type="button" value="*" onclick="setOperator(2), clearNum();"/>
+                    <input type="button" value="/" onclick="setOperator(3), clearNum();"/>
+                    <input type="button" value="=" onclick="operate(returnFirstNumber(),returnOperator(),returnSecondNumber());"/>
+                </div>
+            </div>
+            <div class="otherButtons">
+                <input type="button" value="clear" onclick="clearNum();"/>
+                <input type="button" value="del" onclick="deleteNum()"/>
+            </div>
         </div>
     </div>
     

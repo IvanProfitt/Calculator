@@ -1,18 +1,47 @@
-.allButtons{
+.calculator{
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: azure;
+
+}
+
+input{
+    height:50px;
+    width:100px;
+}
+
+.allButtons{
+    background-color: antiquewhite;
+    border-radius: 10px;
+}
+.otherButtons{
+    display: flex;
+    justify-content: center;
 }
 .numButtons{
     display:grid;
-    grid-template-columns:repeat(3, 40px);
+    margin:5px;
+    grid-template-columns:repeat(3, 100px);
     grid-gap:5px;
-    border: solid 1px;
 }
 .functionButtons{
     display:flex;
     flex-direction: column;
-    width:40px;
+    margin:5px;
+    gap: 5px;
+}
+.calcButtons{
+    display: flex;
 }
 
 .numButtons :last-child{
     grid-column: 2;
+}
+
+.screen{
+    display: flex;
+    height:15px;
+    justify-content: center;
 }
