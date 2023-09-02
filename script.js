@@ -1,8 +1,9 @@
-let firstNumber;
-let secondNumber;
-let operatorValue;
+let firstNumber=undefined;
+let secondNumber=undefined;
+let operatorValue=undefined;
 let numString ="";
 let clearScreen=true;
+let firstClear=true;
 const calcScreen = document.getElementById("screen");
 
 function returnFirstNumber(){
@@ -48,7 +49,6 @@ function deleteNum(){
 
 function addNumber(nextNumber){
     if(clearScreen===false){
-        console.log("ahhh");
         clearScreen=true;
         clearNum();
     }
@@ -63,10 +63,14 @@ function addNumber(nextNumber){
 
 function setOperator(value){
     operatorValue=value;
-
 }
 
 function operate(firstNumber, operator, secondNumber){
+    if(operator===undefined || secondNumber===undefined || firstNumber===undefined){
+        calcScreen.innerHTML="ERROR";
+        resetVariables();
+
+    }
 
     if (operator === 0) {
         // Perform the operation
@@ -75,12 +79,8 @@ function operate(firstNumber, operator, secondNumber){
 
         // Convert the result to a string and update calcScreen
         calcScreen.innerHTML = firstNumber.toString();
+        resetVariables();
 
-
-        firstNumber = undefined;
-        secondNumber = undefined;
-        operatorValue = undefined;
-        clearScreen=false;
     }
     if (operator === 1) {
         // Perform the operation
@@ -89,12 +89,7 @@ function operate(firstNumber, operator, secondNumber){
 
         // Convert the result to a string and update calcScreen
         calcScreen.innerHTML = firstNumber.toString();
-
-
-        firstNumber = undefined;
-        secondNumber = undefined;
-        operatorValue = undefined;
-        clearScreen=false;
+        resetVariables();
     }
     if (operator === 2) {
         // Perform the operation
@@ -103,12 +98,7 @@ function operate(firstNumber, operator, secondNumber){
 
         // Convert the result to a string and update calcScreen
         calcScreen.innerHTML = firstNumber.toString();
-
-
-        firstNumber = undefined;
-        secondNumber = undefined;
-        operatorValue = undefined;
-        clearScreen=false;
+        resetVariables();
     }
     if (operator === 3) {
         // Perform the operation
@@ -117,11 +107,42 @@ function operate(firstNumber, operator, secondNumber){
 
         // Convert the result to a string and update calcScreen
         calcScreen.innerHTML = firstNumber.toString();
-
-
-        firstNumber = undefined;
-        secondNumber = undefined;
-        operatorValue = undefined;
-        clearScreen=false;
+        resetVariables();
     }
 }
+
+function resetVariables(){
+    firstNumber = parseInt(calcScreen.innerHTML);
+    secondNumber = undefined;
+    clearScreen=false;
+
+}
+
+
+var equals = document.querySelectorAll('#equals');
+
+
+equals.forEach(function (button) {
+    button.addEventListener('click', handleEqualsClick);
+});
+
+function handleEqualsClick(event){
+    calcScreen.innerHTML="";
+    if ((isNaN(secondNumber)===false) &&(operatorValue !== undefined) && (secondNumber !== undefined) && (firstNumber !== undefined)) {
+    operate(returnFirstNumber(),returnOperator(), returnSecondNumber());
+    resetVariables();
+  }
+}
+
+
+
+
+
+//OperatorValue, firstNumber, and secondNumber must all
+//have a value.
+///
+//An operator value must be pushed after already having a
+//previous value.
+///
+//firstNum must become the answer, printed to the output,
+//and the operator must be reset. 

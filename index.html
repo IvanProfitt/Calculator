@@ -27,16 +27,16 @@
                 </div>
 
                 <div class="functionButtons">
-                    <input type="button" value="+" onclick="setOperator(0), clearNum();"/>
-                    <input type="button" value="-" onclick="setOperator(1), clearNum();"/>
-                    <input type="button" value="*" onclick="setOperator(2), clearNum();"/>
-                    <input type="button" value="/" onclick="setOperator(3), clearNum();"/>
-                    <input type="button" value="=" onclick="operate(returnFirstNumber(),returnOperator(),returnSecondNumber());"/>
+                    <input type="button" value="+" id="equals" onclick="setOperator(0)"/>
+                    <input type="button" value="-" id="equals" onclick="setOperator(1)"/>
+                    <input type="button" value="*" id="equals" onclick="setOperator(2)"/>
+                    <input type="button" value="/" id="equals" onclick="setOperator(3)"/>
+                    <input type="button" value="="  id="equals"/>
                 </div>
             </div>
             <div class="otherButtons">
                 <input type="button" value="clear" onclick="clearNum();"/>
-                <input type="button" value="del" onclick="deleteNum()"/>
+                <input type="button" value="del" onclick="deleteNum();"/>
             </div>
         </div>
     </div>
